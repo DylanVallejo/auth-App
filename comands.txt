@@ -1,0 +1,5 @@
+
+genereates a module and a routing module
+ng g m auth --routing
+
+ng g m dashboard --routing
