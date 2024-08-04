@@ -18,6 +18,8 @@ export class LoginPageComponent {
 
 
   login() {
+    // event.preventDefault();
+    // console.log(event)
     console.log(this.myForm.value)
   }
 
