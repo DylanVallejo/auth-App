@@ -1,8 +1,8 @@
-import { inject, Injectable, signal } from '@angular/core';
+import { computed, inject, Injectable, signal } from '@angular/core';
 import { environment } from '../../../environments/environments';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
-import { User , AuthStatus} from '../interfaces'
+import { catchError, map, Observable, of, tap, throwError } from 'rxjs';
+import { User , AuthStatus, LoginResponse} from '../interfaces'
 
 @Injectable({
   providedIn: 'root'
@@ -17,9 +17,33 @@ export class AuthService {
 
   constructor() { }
 
+  //!al mundo exterior
+  public currentUser = computed( () => this._currentUser() );
+  public authStatus = computed ( () => this._authStatus() );
+
 
   login(email: string , password:string) : Observable<boolean> {
-    return of(true);
+
+
+    const url =`${this.baseUrl}/auth/login`
+    const body = { email, password }; //  { email:email, password:password }
+
+    return this.http.post<LoginResponse>(url,body)
+    .pipe(
+      tap(({ user,token }) => {
+        this._currentUser.set( user );
+        this._authStatus.set(AuthStatus.authenticated);
+        //almacenar session en secure cookies
+        localStorage.setItem('token', token);
+        console.log({ user,token })
+      }),
+      map(  () => true ),
+      //Todo errores
+
+      catchError( err => throwError( () => err.error)
+      )
+    );
+    // return of(true);
   }
 
 
