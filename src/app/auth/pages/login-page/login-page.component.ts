@@ -31,8 +31,8 @@ export class LoginPageComponent {
     .subscribe(  {
       next : ( ) => {
         this.sweetAlertService.Toast.fire({
-          icon: 'success',
-          title: 'Login exitoso!'
+          icon: 'success' || 'error',
+          title: 'Login exitoso!' || 'Ha sucedido un error.'
         });
         this.router.navigateByUrl('/dashboard')
 
@@ -41,7 +41,8 @@ export class LoginPageComponent {
         console.log(message)
         this.sweetAlertService.Toast.fire({
           icon: 'error',
-          title: message.message
+          title: message.message || 'Ha ocurrido un error.'
+
         })
       }
     } )
