@@ -16,7 +16,9 @@ export class AuthService {
   private _currentUser  = signal< User | null >(null);
   private _authStatus = signal< AuthStatus>( AuthStatus.checking );
 
-  constructor() { }
+  constructor() {
+    this.checkAuthStatus().subscribe();
+  }
 
   private setAuthentication( user:User, token:string ) : boolean {
     this._currentUser.set( user );
