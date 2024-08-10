@@ -17,5 +17,6 @@ export const isAuthenticatedGuard: CanActivateFn = (route, state) => {
   router.navigateByUrl('/auth/login');
   // aplicar el principio DRY un guard se encarga de proteger la ruta
   return false;
-
+    
+    //proceso inverso de autentificacion si estoy autenticado no ir al inicio
 };

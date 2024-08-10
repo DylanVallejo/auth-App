@@ -16,28 +16,32 @@ export class AppComponent {
 
 
   public finishedAuthCheck = computed<boolean>( () => {
+    // console.log('validando estado')
+    // console.log(this.authService.authStatus())
     if( this.authService.authStatus() === AuthStatus.checking) return false;
     return true;
   });
 
-  public authStatusChangedEffect = effect(()=> {
 
+
+  public authStatusChangedEffect = effect(()=> {
+    // console.log(this.authService.authStatus())
 
     switch(this.authService.authStatus() ){
 
       case AuthStatus.checking:
-        return;
-        
+        return false;
+
       case AuthStatus.authenticated:
         this.router.navigateByUrl('/dashboard');
-        return;
+        return true;
 
       case AuthStatus.notAuthenticated:
         this.router.navigateByUrl('/auth/login')
-        return;
+        return false;
     }
 
-    console.log(this.authService.authStatus())
+
 
   })
 
