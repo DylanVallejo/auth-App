@@ -16,8 +16,6 @@ export class AppComponent {
 
 
   public finishedAuthCheck = computed<boolean>( () => {
-    // console.log('validando estado')
-    // console.log(this.authService.authStatus())
     if( this.authService.authStatus() === AuthStatus.checking) return false;
     return true;
   });
@@ -25,8 +23,6 @@ export class AppComponent {
 
 
   public authStatusChangedEffect = effect(()=> {
-    // console.log(this.authService.authStatus())
-
     switch(this.authService.authStatus() ){
 
       case AuthStatus.checking:

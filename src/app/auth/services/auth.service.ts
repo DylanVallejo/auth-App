@@ -22,7 +22,6 @@ export class AuthService {
   public authStatus = computed ( () => this._authStatus() );
 
   constructor() {
-    // console.log(this.checkAuthStatus())
     this.checkAuthStatus().subscribe();
   }
 
@@ -55,21 +54,15 @@ export class AuthService {
 
     const url = `${this.baseUrl}/auth/check-token`;
     const token = localStorage.getItem('token');
-    console.log("verificando")
-    console.log({token})
-    console.log(token)
-
+    
     if (!token || token === null) {
       this._authStatus.set(AuthStatus.notAuthenticated);
       return of(false)
-
     };
-    // if (token === null) return of(false);
 
     //todo no logra mantener sesion
     const headers = new HttpHeaders()
     .set('Authorization', `Bearer ${ token }`);
-
     return this.http.get<CheckTokenResponse>(url, {headers})
     .pipe(
       map( ({ user,token }) => this.setAuthentication(user,token) ),

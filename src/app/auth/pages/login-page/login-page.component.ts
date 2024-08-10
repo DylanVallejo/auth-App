@@ -38,7 +38,6 @@ export class LoginPageComponent {
 
       },
       error: (message) => {
-        console.log(message)
         this.sweetAlertService.Toast.fire({
           icon: 'error',
           title: message.message || 'Ha ocurrido un error.'
@@ -46,9 +45,6 @@ export class LoginPageComponent {
         })
       }
     } )
-    // event.preventDefault();
-    // console.log(event)
-    // console.log(this.myForm.value)
   }
 
 
