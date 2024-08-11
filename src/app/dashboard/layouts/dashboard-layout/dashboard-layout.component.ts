@@ -13,7 +13,12 @@ export class DashboardLayoutComponent {
 
   // las propiedades computadas sirven como lectura.
   public user = computed(()=> this.authService.currentUser());
+  // public isLogOut = computed(( ) => this.authService.onLogOut());
 
+
+  onLogOut(){
+    this.authService.onLogOut();
+  }
   // get user() {
   //   return this.authService.currentUser();
   // }

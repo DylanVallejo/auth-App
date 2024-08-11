@@ -23,6 +23,7 @@ export class AuthService {
 
   constructor() {
     this.checkAuthStatus().subscribe();
+    // this.onLogOut().subscribe();
   }
 
   private setAuthentication( user:User, token:string ) : boolean {
@@ -54,7 +55,7 @@ export class AuthService {
 
     const url = `${this.baseUrl}/auth/check-token`;
     const token = localStorage.getItem('token');
-    
+
     if (!token || token === null) {
       this._authStatus.set(AuthStatus.notAuthenticated);
       return of(false)
@@ -72,6 +73,14 @@ export class AuthService {
       )
     )
 
+  }
+  // onLogOut() : boolean{
+
+  onLogOut() : Observable< boolean >{
+    this._currentUser.set( null );
+    this._authStatus.set(AuthStatus.notAuthenticated);
+    localStorage.removeItem('token')
+    return of(true);
   }
 
 
