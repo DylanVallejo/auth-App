@@ -44,12 +44,10 @@ export class AuthService {
     return this.http.post<LoginResponse>(url,body)
     .pipe(
       map(({ user,token }) => this.setAuthentication(user,token)),
-      //Todo errores
       catchError( err => throwError( () => err.error))
     );
     // return of(true);
   }
-
 
   checkAuthStatus(  ):Observable<boolean> {
 
@@ -61,7 +59,6 @@ export class AuthService {
       return of(false)
     };
 
-    //todo no logra mantener sesion
     const headers = new HttpHeaders()
     .set('Authorization', `Bearer ${ token }`);
     return this.http.get<CheckTokenResponse>(url, {headers})
@@ -74,7 +71,6 @@ export class AuthService {
     )
 
   }
-  // onLogOut() : boolean{
 
   onLogOut() : Observable< boolean >{
     this._currentUser.set( null );
@@ -83,6 +79,20 @@ export class AuthService {
     return of(true);
   }
 
+  register(email: string, name: string, password: string):Observable<boolean>{
 
+    const body  = {email, name, password};
+    const url = `${this.baseUrl}/auth/register`
+
+    return this.http.post<LoginResponse>(url, body)
+    .pipe(
+      map(({user, token}) => this.setAuthentication(user, token)),
+      catchError(err => throwError(()=> err.error))
+    );
+  }
+
+  createuser(){
+    this._authStatus.set(AuthStatus.checking);
+  }
 
 }

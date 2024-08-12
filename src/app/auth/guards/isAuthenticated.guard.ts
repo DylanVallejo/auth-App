@@ -11,12 +11,11 @@ export const isAuthenticatedGuard: CanActivateFn = (route, state) => {
   if ( authService.authStatus() === AuthStatus.authenticated  ) return true;
 
   if(authService.authStatus() === AuthStatus.checking){
+    router.navigateByUrl('/auth/register');
     return false;
   }
 
+
   router.navigateByUrl('/auth/login');
-  // aplicar el principio DRY un guard se encarga de proteger la ruta
   return false;
-    
-    //proceso inverso de autentificacion si estoy autenticado no ir al inicio
 };

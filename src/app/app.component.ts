@@ -16,7 +16,10 @@ export class AppComponent {
 
 
   public finishedAuthCheck = computed<boolean>( () => {
-    if( this.authService.authStatus() === AuthStatus.checking) return false;
+    if( this.authService.authStatus() === AuthStatus.checking) {
+      this.router.navigateByUrl('/auth/register');
+      return true;
+    };
     return true;
   });
 
@@ -26,6 +29,7 @@ export class AppComponent {
     switch(this.authService.authStatus() ){
 
       case AuthStatus.checking:
+        // this.router.navigateByUrl('/auth/register');
         return false;
 
       case AuthStatus.authenticated:
@@ -37,11 +41,6 @@ export class AppComponent {
         return false;
     }
 
-
-
   })
-
-
-
 
 }

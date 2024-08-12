@@ -20,7 +20,7 @@ export class LoginPageComponent {
   private router  = inject(Router)
 
   public myForm: FormGroup = this.fb.group({
-    email: [ 'dylan@gmail.com', [Validators.required, Validators.email]],
+    email: [ '', [Validators.required, Validators.email]],
     password: [ '', [Validators.required, Validators.minLength(6)] ],
   });
 
@@ -45,6 +45,10 @@ export class LoginPageComponent {
         })
       }
     } )
+  }
+
+  checkingRegister(){
+    this.authService.createuser()
   }
 
 

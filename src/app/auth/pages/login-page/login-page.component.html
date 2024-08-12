@@ -4,7 +4,8 @@
   <span class="login100-form-title p-b-49">
     Login
   </span>
-<!-- ng submit ngcontorl ng control name -->
+
+
   <div class="wrap-input100 m-b-23">
     <span class="label-input100">Correo</span>
     <input class="input100"
@@ -41,8 +42,7 @@
       ¿No tienes cuenta?
     </span>
 
-    <a routerLink="/auth/register" class="txt2">
-      <!-- crear la vista -->
+    <a routerLink="/auth/register" class="txt2" (click)="checkingRegister()">
       Crear una aquí
     </a>
   </div>
