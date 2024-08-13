@@ -14,6 +14,8 @@ export class DashboardLayoutComponent {
   // las propiedades computadas sirven como lectura.
   public user = computed(()=> this.authService.currentUser());
 
+  // public userData = structuredClone(this.user);
+
   onLogOut(){
     this.authService.onLogOut();
   }

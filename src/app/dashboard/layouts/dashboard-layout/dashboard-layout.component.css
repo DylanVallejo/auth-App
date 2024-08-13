@@ -1,0 +1,33 @@
+
+.general-container{
+  padding: 1rem;
+}
+
+.contenedor{
+  padding-left: 1rem;
+
+}
+
+.properties{
+  font-size: 1rem;
+  color: rgb(180, 125, 231);
+}
+
+.span-data{
+  font-size: 1rem;
+  color: black;
+  margin-left: 1rem;
+}
+
+.login-span{
+  font-size: 1rem;
+  margin: 1rem;
+  font-family: Poppins-Bold;
+  transition:
+    color 3s;
+}
+
+.login-span:hover{
+  cursor: pointer;
+  color: rgb(242, 109, 109);
+}

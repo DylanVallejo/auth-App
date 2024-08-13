@@ -1,13 +1,38 @@
-<h1>
-  DashBoard
-</h1>
+<div class="general-container ">
+  <h1 class="login100-form-title p-b-49">
+    DashBoard
+  </h1>
 
-<h3>User</h3>
-<pre>{{ user() | json  }}</pre>
+  <h3 class="login100-title p-b-20">User info</h3>
+  <!-- <pre>{{ user() | json  }}</pre> -->
 
-<span  routerLink="/auth/login" >ir al login</span>
+  <section class="contenedor">
+    <p class="properties">
+      Nombre : <span class="span-data"> {{user()?.name}} </span>
+    </p>
+    <!-- <hr> -->
+    <p class="properties">
+      Email : <span class="span-data"> {{user()?.email}} </span>
+    </p>
+    <!-- <hr> -->
+    <p class="properties ">
+      Role : <span class="span-data">  {{user()?.roles}}</span>
+    </p>
+
+  </section>
+
+  <div class="flex-col-c p-20">
+    <span  routerLink="/auth/login"  class="txt2 login-span">ir al login</span>
+  <div>
 
 
-<button class="" (click)="onLogOut()">
-  Cerrar Sesión
-</button>
+  <div class="container-login100-form-btn">
+    <div class="wrap-login100-form-btn">
+      <div class="login100-form-bgbtn"></div>
+        <button class="" (click)="onLogOut()" class="login100-form-btn">
+          Cerrar Sesión
+        </button>
+    </div>
+  </div>
+
+</div>
