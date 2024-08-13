@@ -13,5 +13,5 @@ export const isNotAuthenticated: CanActivateFn = (route,state) => {
     return false;
   }
   return true;
-  
+
 }

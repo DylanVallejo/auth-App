@@ -55,6 +55,8 @@ export class AuthService {
     const token = localStorage.getItem('token');
 
     if (!token || token === null) {
+      this._currentUser.set(null)
+      localStorage.removeItem('token')
       this._authStatus.set(AuthStatus.notAuthenticated);
       return of(false)
     };
