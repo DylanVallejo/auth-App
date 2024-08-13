@@ -1,27 +1,19 @@
 # AuthApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.7.
+App de autnetificacion con angular , implementando Guards , routing , servicios y notificaicones personalizadas mediante sweetalert.
+BackEnd creado con NestJs.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Login page
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+![image](https://github.com/user-attachments/assets/a1210681-eb9a-4279-912c-8d81f5e1dd59)
 
-## Build
+## Register page
+  ![image](https://github.com/user-attachments/assets/8ffa2d46-fc70-43b0-b2e2-109b7bcb97ee)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## DashBoard page
+![image](https://github.com/user-attachments/assets/c283ce2c-1c8b-49f4-9e2d-fbabd56b6f6b)
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Notification
+![image](https://github.com/user-attachments/assets/1bac9616-80ea-4969-8d46-499c0f82ea1b)
